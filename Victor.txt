@@ -26,3 +26,11 @@ function init()
     print("↓ : Miser 2500 golds", 0, 30)
     print("Golds disponibles: "..personal_golds, 0, 0)
 end
+function start_game()
+    if personal_golds >= bet then
+        personal_golds = personal_golds - bet
+        game_started = true
+    else
+        print("Pas assez de golds !", 0, 50)
+    end
+end

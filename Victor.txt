@@ -1,0 +1,36 @@
+personal_golds = 10000
+bet = 0
+game_started = false
+vegetables = {"aubergines", "courgettes", "fenouil"}
+
+function TIC()
+    if not game_started then
+        init()
+    end
+    if btnp(0) then
+        bet = 500
+        start_game()  
+    elseif btnp(1) then
+        bet = 2500
+        start_game() 
+    end
+
+    if game_started then
+        update_game()
+    end
+end
+function init()
+    cls()
+    print("Appuie sur:",0 , 10)
+    print("↑ : Miser 500 golds", 0, 20)
+    print("↓ : Miser 2500 golds", 0, 30)
+    print("Golds disponibles: "..personal_golds, 0, 0)
+end
+function start_game()
+    if personal_golds >= bet then
+        personal_golds = personal_golds - bet
+        game_started = true
+    else
+        print("Pas assez de golds !", 0, 50)
+    end
+end
